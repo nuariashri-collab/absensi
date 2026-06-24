@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin - Absensi KPP Pratama Lubuk Pakam</title>
+<link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+
+  <div id="loginScreen" class="login-screen">
+    <div class="login-box">
+      <img src="logo-djp.png" alt="Logo DJP" class="login-logo">
+      <p class="login-title">Dashboard Admin</p>
+      <p class="login-subtitle">KPP Pratama Lubuk Pakam</p>
+      <input type="password" id="inputPassword" placeholder="Masukkan password admin" autocomplete="off">
+      <button id="btnLogin" class="btn btn-primary">Masuk</button>
+      <p id="loginError" class="login-error hidden">Password salah.</p>
+    </div>
+  </div>
+
+  <div id="dashboardScreen" class="dashboard hidden">
+
+    <header class="admin-header">
+      <img src="logo-djp.png" alt="Logo DJP" class="admin-logo">
+      <div>
+        <p class="admin-title">Dashboard Absensi</p>
+        <p class="admin-subtitle">KPP Pratama Lubuk Pakam &middot; Direktorat Jenderal Pajak</p>
+      </div>
+      <button id="btnLogout" class="btn btn-secondary btn-logout">Keluar</button>
+    </header>
+
+    <main class="admin-container">
+
+      <section class="summary-grid">
+        <div class="summary-card">
+          <p class="summary-label">Tepat waktu</p>
+          <p class="summary-value" id="sumTepatWaktu">0</p>
+        </div>
+        <div class="summary-card">
+          <p class="summary-label">Terlambat</p>
+          <p class="summary-value" id="sumTerlambat">0</p>
+        </div>
+        <div class="summary-card">
+          <p class="summary-label">Tidak hadir</p>
+          <p class="summary-value" id="sumTidakHadir">0</p>
+        </div>
+        <div class="summary-card">
+          <p class="summary-label">Total catatan</p>
+          <p class="summary-value" id="sumTotal">0</p>
+        </div>
+      </section>
+
+      <section class="filter-bar">
+        <input type="date" id="filterTanggalAwal" class="filter-input">
+        <span class="filter-sep">s/d</span>
+        <input type="date" id="filterTanggalAkhir" class="filter-input">
+
+        <select id="filterStatus" class="filter-input">
+          <option value="">Semua status</option>
+          <option value="Tepat Waktu">Tepat waktu</option>
+          <option value="Terlambat">Terlambat</option>
+          <option value="Tidak Hadir">Tidak hadir</option>
+        </select>
+
+        <select id="filterJenis" class="filter-input">
+          <option value="">Datang &amp; pulang</option>
+          <option value="Datang">Datang saja</option>
+          <option value="Pulang">Pulang saja</option>
+        </select>
+
+        <button id="btnTerapkanFilter" class="btn btn-primary btn-filter">Terapkan</button>
+        <button id="btnResetFilter" class="btn btn-secondary btn-filter">Reset</button>
+        <button id="btnMuatUlang" class="btn btn-secondary btn-filter">Muat ulang</button>
+        <button id="btnExportCsv" class="btn btn-secondary btn-filter">Unduh CSV</button>
+      </section>
+
+      <section class="table-wrapper">
+        <table id="tabelAbsensi" class="tabel-absensi">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Hari</th>
+              <th>Jenis</th>
+              <th>Jam</th>
+              <th>Status</th>
+              <th>Terlambat</th>
+              <th>Jam pulang min.</th>
+              <th>Lokasi</th>
+              <th>Jarak</th>
+              <th>Akurasi GPS</th>
+              <th>Foto</th>
+            </tr>
+          </thead>
+          <tbody id="tabelBody">
+          </tbody>
+        </table>
+        <p id="tabelKosong" class="tabel-kosong hidden">Tidak ada data untuk filter yang dipilih.</p>
+      </section>
+
+    </main>
+
+    <div id="overlayLoadingAdmin" class="overlay hidden">
+      <div class="spinner"></div>
+      <p>Memuat data...</p>
+    </div>
+
+  </div>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>
