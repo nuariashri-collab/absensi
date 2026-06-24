@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Absensi - KPP Pratama Lubuk Pakam</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img src="logo-djp.png" alt="Logo DJP" class="logo">
+    <div class="header-text">
+      <p class="header-title">KPP Pratama Lubuk Pakam</p>
+      <p class="header-subtitle">Direktorat Jenderal Pajak</p>
+      <p class="header-subtitle">Kementerian Keuangan Republik Indonesia</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <p class="label">Nama pegawai</p>
+      <p class="value" id="namaPegawai">Muhammad Ananda Difa</p>
+    </section>
+
+    <section class="card status-gps" id="statusGpsCard">
+      <span class="status-dot" id="statusGpsDot"></span>
+      <p class="status-text" id="statusGpsText">Mengambil lokasi...</p>
+    </section>
+
+    <section class="card">
+      <div class="preview-box" id="previewBox">
+        <video id="cameraStream" autoplay playsinline class="hidden"></video>
+        <canvas id="canvasFoto" class="hidden"></canvas>
+        <img id="previewFoto" class="hidden" alt="Preview selfie">
+        <div id="placeholderFoto" class="placeholder">
+          <p>Belum ada foto</p>
+        </div>
+      </div>
+
+      <button id="btnBukaKamera" class="btn btn-secondary">Buka kamera</button>
+      <button id="btnAmbilFoto" class="btn btn-primary hidden">Ambil foto selfie</button>
+      <button id="btnUlangiFoto" class="btn btn-secondary hidden">Ambil ulang</button>
+    </section>
+
+    <section class="action-grid">
+      <button id="btnAbsenDatang" class="btn btn-datang" disabled>Absen datang</button>
+      <button id="btnAbsenPulang" class="btn btn-pulang" disabled>Absen pulang</button>
+    </section>
+
+    <p class="info-text">Jam kerja 08:00 &middot; toleransi keterlambatan sampai 09:00</p>
+
+    <div id="overlayLoading" class="overlay hidden">
+      <div class="spinner"></div>
+      <p id="loadingText">Memproses...</p>
+    </div>
+
+    <div id="modalHasil" class="modal-backdrop hidden">
+      <div class="modal-box">
+        <p id="modalIcon" class="modal-icon"></p>
+        <p id="modalMessage" class="modal-message"></p>
+        <button id="btnTutupModal" class="btn btn-primary">Tutup</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
